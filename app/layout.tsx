@@ -4,18 +4,25 @@ import StyledComponentsRegistry from '../lib/AntdRegistry';
 import {PropsWithChildren} from "react";
 
 import { Breadcrumb, Layout, theme } from 'antd';
-const { Header, Content, Footer } = Layout;
 
-import "./globals.css";
 import AnimatedTextEffect13 from "@/components/animation/animatedTextEffect13";
 import AnimatedTextEffect05 from "@/components/animation/animatedTextEffect05";
 
-const RootLayout = ({children}: PropsWithChildren) => {
+import {Provider} from "react-redux";
+import store from "@/redux/store";
 
+import "./globals.css";
+import Item from "antd/es/list/Item";
+
+const { Header, Content, Footer } = Layout;
+
+
+const RootLayout = ({children}: PropsWithChildren) => {
     const {
         token: { colorBgContainer },
     } = theme.useToken();
     return (
+        <Provider store={store}>
         <html lang="en" style={{height: "100%"}}>
         <body style={{height: "100%", margin: 0}}>
 
@@ -39,6 +46,7 @@ const RootLayout = ({children}: PropsWithChildren) => {
 
         </body>
         </html>
+        </Provider>
     )
 };
 
