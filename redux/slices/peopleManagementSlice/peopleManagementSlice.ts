@@ -47,11 +47,21 @@ export const peopleManagementSlice :Slice<{people: IPerson[]}> = createSlice({
         },
         savePerson(state, action: {payload: {person: IPerson}}){
             state.people.push(action.payload.person);
+        },
+        showPeopleOnConsole(state){
+            state.people.filter(person => person.status === PersonStatus.Active).forEach(person => {
+
+                console.table({
+                    "Name": person.name,
+                    "Date": person.updated_at,
+                    "Favorite Movie": person.favorite_movie
+                });
+            });
         }
     }
 });
 
 // Action creators are generated for each case reducer function
-export const { loadPeople , editPerson, savePerson} = peopleManagementSlice.actions;
+export const { loadPeople , editPerson, savePerson, showPeopleOnConsole} = peopleManagementSlice.actions;
 
 export default peopleManagementSlice.reducer;

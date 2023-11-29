@@ -78,7 +78,7 @@ export default function SimpleModal({personToEdit}: ISimpleModal) {
         }
     }
     return (
-        <div style={{paddingTop: 10, paddingLeft: 10, paddingBottom: 10}}>
+        <div style={{paddingTop: 10, paddingLeft: 10, paddingBottom: 10, display: "inline-block", marginRight: 10}}>
             <ConfigProvider
                 theme={{
                     token: {
